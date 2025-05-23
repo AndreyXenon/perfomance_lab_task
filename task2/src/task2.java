@@ -14,7 +14,6 @@ public class task2 {
 
         double centerX, centerY, radius;
 
-        // Чтение окружности
         try (Scanner circleScanner = new Scanner(new File(circleFilePath))) {
             centerX = circleScanner.nextDouble();
             centerY = circleScanner.nextDouble();
@@ -26,7 +25,6 @@ public class task2 {
 
         double radiusSquared = radius * radius;
 
-        // Чтение точек и проверка
         try (Scanner pointScanner = new Scanner(new File(pointsFilePath))) {
             while (pointScanner.hasNextDouble()) {
                 double x = pointScanner.nextDouble();
@@ -37,11 +35,11 @@ public class task2 {
                 double distanceSquared = dx * dx + dy * dy;
 
                 if (Math.abs(distanceSquared - radiusSquared) < 1e-9) {
-                    System.out.println(0); // на окружности
+                    System.out.println(0);
                 } else if (distanceSquared < radiusSquared) {
-                    System.out.println(1); // внутри
+                    System.out.println(1);
                 } else {
-                    System.out.println(2); // снаружи
+                    System.out.println(2);
                 }
             }
         } catch (FileNotFoundException e) {

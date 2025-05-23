@@ -11,7 +11,6 @@ public class task4 {
         String filePath = args[0];
         List<Integer> numbers = new ArrayList<>();
 
-        // Чтение чисел из файла
         try (Scanner scanner = new Scanner(new File(filePath))) {
             while (scanner.hasNextInt()) {
                 numbers.add(scanner.nextInt());
@@ -26,14 +25,11 @@ public class task4 {
             return;
         }
 
-        // Преобразуем в массив и сортируем
         int[] nums = numbers.stream().mapToInt(i -> i).toArray();
         Arrays.sort(nums);
 
-        // Находим медиану
         int median = nums[nums.length / 2];
 
-        // Вычисляем общее количество шагов
         int moves = 0;
         for (int num : nums) {
             moves += Math.abs(num - median);
@@ -42,4 +38,3 @@ public class task4 {
         System.out.println(moves);
     }
 }
-
